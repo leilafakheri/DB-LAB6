@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import UserEntity from '../db/entity/user.entity';
+import UserEntity from '../../db/user.entity';
 import CreateUserDto from './dto/create-user.dto';
 import BookEntity from '../../db/book.entity';
 import {getConnection} from "typeorm";
