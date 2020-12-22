@@ -1,7 +1,8 @@
 import { HelloService } from './hello.service'
-import { Controller, Post, Body, Get, Header, Query } from '@nestjs/common'; 
+import { Controller, Post, Body, Get, Header, Query, UseGuards } from '@nestjs/common'; 
 import { PersonDto } from './dto/person.dto';
 import {ApiResponse,ApiBearerAuth, ApiQuery } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('hello')
 export class HelloController {
@@ -28,7 +29,8 @@ export class HelloController {
       type: Number,
       description :`you can ignore this`
     })
-    
+    @ApiBearerAuth()
+    @UseGuards(AuthGuard('jwt'))
     @Get('welcome')
     async sayWelcome2(@Query('name') iName, @Query('year') iYear): Promise< {data : String}> {
     let msg = await this.helloService.welcome({name : iName, year : iYear});
