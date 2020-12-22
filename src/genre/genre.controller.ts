@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Delete, Query } from '@nestjs/common';
 import GenreServices from './genre.service';
 import CreateGenreDto from './dto/create-genre.dto';
 
@@ -13,4 +13,4 @@ export default class GenreController {
   getAll() {
     return this.genreServices.getAllGenre();
   }
-}
+  }

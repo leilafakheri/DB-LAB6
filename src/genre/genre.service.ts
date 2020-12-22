@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import CreateGenreDto from './dto/create-genre.dto';
 import GenreEntity from '../../db/genre.entity';
 
